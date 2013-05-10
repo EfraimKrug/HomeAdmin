@@ -1,0 +1,32 @@
+<style type="text/css">
+* {margin:0;background:#fff;}
+
+a { 
+	text-decoration: none;  
+	}
+h1 {
+	text-align:center;
+	}
+h2  { 
+	width:100%; 
+	text-align:center;
+	margin-top:32px;
+	}
+
+.column { 
+	float: left; 
+	margin-left: 12px; 
+	position: relative; 
+	}
+	
+.button {
+	padding: 11px 7px 10px;
+	display:inline;
+	border: 0px solid #FFF;
+	font-size:12px;
+	
+	color: #fff;
+	cursor: pointer;
+	font-weight: bold;
+	}		
+</style>

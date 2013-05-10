@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- <link rel="stylesheet" href="../css/schedMash.css"> -->
+<link rel="stylesheet" href="../css/HomeAdmin.css">
+<title>Keeping your home safe... wherever you are!</title>
+<link rel="stylesheet" type="text/css" href="..\css\ButtonMenu.css">
+<script type="text/javascript" src="..\js\jquery.js" ></script>
+<script type="text/javascript"><!-- this jQuery runs the top menu -->
+function changeInside(f)
+{
+if(f == 'form1'){
+	document.getElementById("iThink").src="..\\php\\forms\\getContractor.php";
+	}
+if(f == 'form2'){
+	document.getElementById("iThink").src="..\\php\\forms\\getContractorID.php";
+	}
+}
+
+var blueText = new Array();
+blueText[0] = "<span id=\"form1\" onClick=changeInside('form1') color=blue>New</span>";
+blueText[1] = "<span id=\"form2\" onClick=changeInside('form2') color=blue>Change</span>";
+blueText[2] = "<span id=\"form3\" onClick=changeInside('form1') color=blue>Delete</span>";
+blueText[3] = "";
+
+var greenText = new Array();
+greenText[0] = "<span id=\"form1\" onClick=changeInside('form1') color=blue>New</span>";
+greenText[1] = "<span id=\"form1\" onClick=changeInside('form1') color=blue>Change</span>";
+greenText[2] = "<span id=\"form1\" onClick=changeInside('form1') color=blue>Delete</span>";
+greenText[3] = "";
+
+var orangeText = new Array();
+orangeText[0] = "<span id=\"form1\" onClick=changeInside('form1') color=blue>New</span>";
+orangeText[1] = "<span id=\"form1\" onClick=changeInside('form1') color=blue>Change</span>";
+orangeText[2] = "<span id=\"form1\" onClick=changeInside('form1') color=blue>Delete</span>";
+orangeText[3] = "";
+
+var violetText = new Array();
+violetText[0] = "<a href='..\DailyTimes.php'> </a>";
+violetText[1] = "<a href='..\Classes.php'> </a>";
+violetText[2] = "";
+violetText[3] = "";
+
+var pinkText = new Array();
+pinkText[0] = "<span id=\"form1\" onClick=changeInside('form1') color=blue>New</span>";
+pinkText[1] = "<span id=\"form1\" onClick=changeInside('form1') color=blue>Change</span>";
+pinkText[2] = "<span id=\"form1\" onClick=changeInside('form1') color=blue>Delete</span>";
+pinkText[3] = "";
+
+var purpleText = new Array();
+purpleText[0] = "<a href='..\Personal.php'>Personals</a>";
+purpleText[1] = "<a href='..\MazalTov.php'>MazalTov!</a>";
+purpleText[2] = "<a href='..\Condolences.php'>Condolences</a>";
+purpleText[3] = "";
+
+var whiteText = new Array();
+whiteText[0] = "<a href='..\Mikvah.php'>Mikvah</a>";
+whiteText[1] = "<a href='..\LostAndFound.php'>Lost&Found</a>";
+whiteText[2] = "<a href='..\Needed.php'>Needed</a>";
+whiteText[3] = "<a href='..\Wanted.php'>Wanted</a>";
+
+$(document).ready(function(){
+	$(".button" ).toggle(function(){
+		var clas  = $(this).attr("class" );
+		$(".button").css("color", "white");
+		if(clas.replace('button ','') == "blue"){
+			$(this).css("color", "blue");
+			$(".sub1").html(blueText[0]);
+			$(".sub2").html(blueText[1]);
+			$(".sub3").html(blueText[2]);
+			$(".sub4").html(blueText[3]);
+			}
+		if(clas.replace('button ','') == "green"){
+			$(this).css("color", "blue");
+			$(".sub1").html(greenText[0]);
+			$(".sub2").html(greenText[1]);
+			$(".sub3").html(greenText[2]);
+			$(".sub4").html(greenText[3]);
+			}
+		if(clas.replace('button ','') == "orange"){
+			$(this).css("color", "blue");
+			$(".sub1").html(orangeText[0]);
+			$(".sub2").html(orangeText[1]);
+			$(".sub3").html(orangeText[2]);
+			$(".sub4").html(orangeText[3]);
+			}
+
+		if(clas.replace('button ','') == "violet"){
+			$(this).css("color", "blue");
+			$(".sub1").html(violetText[0]);
+			$(".sub2").html(violetText[1]);
+			$(".sub3").html(violetText[2]);
+			$(".sub4").html(violetText[3]);
+			}
+		if(clas.replace('button ','') == "pink"){
+			$(this).css("color", "blue");
+			$(".sub1").html(pinkText[0]);
+			$(".sub2").html(pinkText[1]);
+			$(".sub3").html(pinkText[2]);
+			$(".sub4").html(pinkText[3]);
+			}
+		if(clas.replace('button ','') == "purple"){
+			$(this).css("color", "blue");
+			$(".sub1").html(purpleText[0]);
+			$(".sub2").html(purpleText[1]);
+			$(".sub3").html(purpleText[2]);
+			$(".sub4").html(purpleText[3]);
+			}
+		if(clas.replace('button ','') == "white"){
+			$(this).css("color", "blue");
+			$(".sub1").html(whiteText[0]);
+			$(".sub2").html(whiteText[1]);
+			$(".sub3").html(whiteText[2]);
+			$(".sub4").html(whiteText[3]);
+			}
+		},
+		function(){
+		var clas  = $(this).attr("class" );
+			$(".button").css("color", "white");
+			$(".sub1").html(" ");
+			$(".sub2").html(" ");
+			$(".sub3").html(" ");
+			$(".sub4").html(" ");
+	});
+
+});
+
+</script> 
+
+</head>
+<body>
+<div id="wrapper">
+	<div id="header"><!--  BEGIN DOCUMENT MENU ----------------->
+	<div class="container"> 
+	<div class="column c1">
+	       <div class="button blue"> Contractor </div>
+	</div> <!-- column -->
+	<div class="column c2">
+    <div class="button green"> Manager  </div>
+	</div> <!-- column -->
+	<div class="column c3">
+		<div class="button orange">  Owner  </div>
+	</div> <!-- column -->
+	
+	<div class="column c4">
+	</div> <!-- column -->
+	<div class="column c5">
+			<div class="button pink">  Property  </div>
+	</div> <!-- column -->
+	<div class="column c6">
+			<div class="button purple"> Services  </div>
+	</div> <!-- column -->
+	<div class="column c7">
+			<div class="button white">  Announcements </div>
+	</div> <!-- column -->
+
+	</div> <!-- #container --> 
+
+	</div><!--             END DOCUMENT MENU: Header  ------------------>
+	<div id="header2">
+<!-- BEGIN DEV -->
+	<div class="container"> 
+	<div class="column c1">
+	       <div class="button sub1"> </div>
+	</div> <!-- column -->
+	<div class="column c2">
+    <div class="button sub2"> </div>
+	</div> <!-- column -->
+	<div class="column c3">
+		<div class="button sub3"> </div>
+	</div> <!-- column -->
+	
+	<div class="column c4">
+			<div class="button sub4">  </div>
+	</div> <!-- column -->
+	<div class="column c5">
+			<div class="button sub5"> </div>
+	</div> <!-- column -->
+	</div>
+<!-- END DEV -->
+	</div>
+	<div id="content">
+		<div id="contentLeft"><img src="..\images\RebbeZLKosel.jpg"></div>
+		<div id="contentMain">
+		    <iframe id="iThink" src="" height=289px width=513px>
+			</iframe>	                    
+		</div>
+		<div id="contentRight">CONTENT RIGHT  R RRRRRR RRRR RRRR R RRRRR RRRR RRRRR RR RR RR RRRRRRRR RRRRR RRRRR RRRR RR RRRRR RRRRR RRR RRRRRR</div>
+	</div>
+	<div id="footer">FOOTER FFFFFFF FFFF FFFFFFFFFF FFFFFFFFFF FFFFF FFFF FFFFFF FFFF FFF FFFF FFFFF FFFFFF FFF FF</div>
+	<div id="bottom">BOTTOM  BBBBB BBBBB BBBBB BBBBBBB BBBB BBBBB BBBBB BBBBB BBB </div>
+</div>
+</body>
+</html>

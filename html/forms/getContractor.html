@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>			
+<body>	
+<?php
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+	foreach($_POST as $p=>$p_value)
+		{
+		echo "KEY=" . $p . ", Value=" . $p_value . "<br>";
+		}
+	}
+?>			
+<!--<form 	action="../AbsorbContractor.php" 
+		method="post">
+-->
+<form 	action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"
+		method="post">
+<table>
+<tr><td></td><td>Enter your information!</td></tr>
+<tr><td>First Name</td><td><input type=text name="FirstName"></td></tr>
+<tr><td>Middle Name</td><td><input type=text name="MiddleName"></td></tr>
+<tr><td>Last Name</td><td><input type=text name="LastName"></td></tr>
+<tr><td>Email</td><td><input type=text name="Email"></td></tr>
+<tr><td>Social Security</td><td><input type=text name="SocialSecurityNumber"></td></tr>
+<tr><td>Phone Number</td><td><input type=text name="PhoneNumber"></td></tr>
+<tr><td>Text Address</td><td><input type=text name="TextAddress"></td></tr>
+<tr><td>House Number</td><td><input type=text name="HouseNumber"></td></tr>
+<tr><td>Street</td><td><input type=text name="Street"></td></tr>
+<tr><td>City/Town</td><td><input type=text name="City"></td></tr>
+<tr><td>Country</td><td><input type=text name="Country"></td></tr>
+<tr><td>Mailing Code</td><td><input type=text name="MailingCode"></td></tr>
+<tr><td>Active (Yes/No)</td><td>
+<input type=radio name="ActiveFlag" value=True checked="checked">/
+<input type=radio name="ActiveFlag" value=False>
+</td></tr>
+<tr><td></td><td><input type="submit" value="Submit"></td></tr>
+</table>
+</form>
+</body>
+</html>
