@@ -2,20 +2,9 @@
 <html>
 <head>
 </head>			
-<body>	
-<?php
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-	foreach($_POST as $p=>$p_value)
-		{
-		echo "KEY=" . $p . ", Value=" . $p_value . "<br>";
-		}
-	}
-?>			
-<!--<form 	action="../AbsorbContractor.php" 
-		method="post">
--->
-<form 	action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"
-		method="post">
+<body>
+
+<form 	action="goContractor.php" 	method="post">
 <table>
 <tr><td></td><td>Enter your information!</td></tr>
 <tr><td>First Name</td><td><input type=text name="FirstName"></td></tr>

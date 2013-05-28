@@ -1,113 +1,238 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- <link rel="stylesheet" href="../css/schedMash.css"> -->
-<link rel="stylesheet" href="../css/HomeAdmin.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="../css/HomeAdmin.css"> 
 <title>Keeping your home safe... wherever you are!</title>
-<link rel="stylesheet" type="text/css" href="..\css\ButtonMenu.css">
-<script type="text/javascript" src="..\js\jquery.js" ></script>
+<link rel="stylesheet" type="text/css" href="../css/ButtonMenu.css">
+<script type="text/javascript" src="../js/jquery.js" ></script>
 <script type="text/javascript"><!-- this jQuery runs the top menu -->
 function changeInside(f)
 {
-if(f == 'form1'){
-	document.getElementById("iThink").src="..\\php\\forms\\getContractor.php";
+if(f == 'form11'){
+	document.getElementById("iThink").src="../php/forms/newRecord.php?type=Contractor";
+	$("#footer").text("Adding a Contractor...");		
+	$("#bottom").text("Contractor: you can add a new, change an old, or delete an old.");
+	$("#contentRight01Slide").text("You can now enter a new contractor - please give all pertinent information!");
 	}
-if(f == 'form2'){
-	document.getElementById("iThink").src="..\\php\\forms\\getContractorID.php";
+if(f == 'form12'){
+	document.getElementById("iThink").src="../php/forms/getPersonID.php?Delete=NO&type=Contractor";
+	$("#footer").text("Changing a Contractor...");
+	$("#contentRight01Slide").text("Identify and change a contractor - we just need 'first name' and 'last name', or unique 'email address'!");
+	}
+if(f == 'form13'){
+	document.getElementById("iThink").src="../php/forms/getPersonID.php?Delete=delete&type=Contractor";	
+	$("#footer").text("Deleting a Contractor...");
+	$("#contentRight01Slide").text("If you need to delete the contractor from the database - do it here!");
+	}
+if(f == 'form21'){
+	document.getElementById("iThink").src="../php/forms/newRecord.php?type=Manager";
+	$("#footer").text("Adding a Manager...");		
+	$("#contentRight01Slide").text("You can now enter a new manager - please give all pertinent information!");
+	}
+if(f == 'form22'){
+	document.getElementById("iThink").src="../php/forms/getPersonID.php?Delete=NO&type=Manager";
+	$("#footer").text("Changing a Manager...");
+	$("#contentRight01Slide").text("Identify and change a manager - we just need 'first name' and 'last name', or unique 'email address'!");
+	}
+if(f == 'form23'){
+	document.getElementById("iThink").src="../php/forms/getPersonID.php?Delete=delete&type=Manager";
+	$("#footer").text("Deleting a Manager...");
+	$("#contentRight01Slide").text("If you need to delete the manager from the database - do it here!");
+	}
+if(f == 'form31'){
+	document.getElementById("iThink").src="../php/forms/newRecord.php?type=Owner";
+	$("#footer").text("Adding an Owner...");	
+	$("#contentRight01Slide").text("You can now enter a new owner - please give all pertinent information!");	
+	}
+if(f == 'form32'){
+	document.getElementById("iThink").src="../php/forms/getPersonID.php?Delete=NO&type=Owner";
+	$("#footer").text("Changing an Owner...");
+	$("#contentRight01Slide").text("Identify and change a owner - we just need 'first name' and 'last name', or unique 'email address'!");
+	}
+if(f == 'form33'){
+	document.getElementById("iThink").src="../php/forms/getPersonID.php?Delete=delete&type=Owner";
+	$("#footer").text("Deleting an Owner...");
+	$("#contentRight01Slide").text("If you need to delete the owner from the database - do it here!");
+	}
+
+if(f == 'form41'){
+	document.getElementById("iThink").src="../php/forms/newRecord.php?type=Property";
+	$("#footer").text("Adding a property...");	
+	$("#contentRight01Slide").text("You can now enter a new property - please give all pertinent information!");	
+	}
+if(f == 'form42'){
+	document.getElementById("iThink").src="../php/forms/getPersonID.php?Delete=NO&type=Property";
+	$("#footer").text("Changing a property...");
+	$("#contentRight01Slide").text("Identify and change a property!");
+	}
+if(f == 'form43'){
+	document.getElementById("iThink").src="../php/forms/getPersonID.php?Delete=delete&type=Property";
+	$("#footer").text("Deleting a property...");
+	$("#contentRight01Slide").text("If you need to delete the property from the database - do it here!");
 	}
 }
 
 var blueText = new Array();
-blueText[0] = "<span id=\"form1\" onClick=changeInside('form1') color=blue>New</span>";
-blueText[1] = "<span id=\"form2\" onClick=changeInside('form2') color=blue>Change</span>";
-blueText[2] = "<span id=\"form3\" onClick=changeInside('form1') color=blue>Delete</span>";
+blueText[0] = "<span id=\"form1\" onClick=changeInside('form11') color=yellow>New</span>";
+blueText[1] = "<span id=\"form2\" onClick=changeInside('form12') color=yellow>Change</span>";
+blueText[2] = "<span id=\"form3\" onClick=changeInside('form13') color=yellow>Delete</span>";
 blueText[3] = "";
 
 var greenText = new Array();
-greenText[0] = "<span id=\"form1\" onClick=changeInside('form1') color=blue>New</span>";
-greenText[1] = "<span id=\"form1\" onClick=changeInside('form1') color=blue>Change</span>";
-greenText[2] = "<span id=\"form1\" onClick=changeInside('form1') color=blue>Delete</span>";
+greenText[0] = "<span id=\"form1\" onClick=changeInside('form21') color=yellow>New</span>";
+greenText[1] = "<span id=\"form1\" onClick=changeInside('form22') color=yellow>Change</span>";
+greenText[2] = "<span id=\"form1\" onClick=changeInside('form23') color=yellow>Delete</span>";
 greenText[3] = "";
 
 var orangeText = new Array();
-orangeText[0] = "<span id=\"form1\" onClick=changeInside('form1') color=blue>New</span>";
-orangeText[1] = "<span id=\"form1\" onClick=changeInside('form1') color=blue>Change</span>";
-orangeText[2] = "<span id=\"form1\" onClick=changeInside('form1') color=blue>Delete</span>";
+orangeText[0] = "<span id=\"form1\" onClick=changeInside('form31') color=yellow>New</span>";
+orangeText[1] = "<span id=\"form1\" onClick=changeInside('form32') color=yellow>Change</span>";
+orangeText[2] = "<span id=\"form1\" onClick=changeInside('form33') color=yellow>Delete</span>";
 orangeText[3] = "";
 
 var violetText = new Array();
-violetText[0] = "<a href='..\DailyTimes.php'> </a>";
-violetText[1] = "<a href='..\Classes.php'> </a>";
-violetText[2] = "";
+violetText[0] = "<span id=\"form1\" onClick=changeInside('form41') color=yellow> </span>";
+violetText[1] = "<span id=\"form1\" onClick=changeInside('form42') color=yellow> </span>";
+violetText[2] = "<span id=\"form1\" onClick=changeInside('form43') color=yellow> </span>";
 violetText[3] = "";
 
 var pinkText = new Array();
-pinkText[0] = "<span id=\"form1\" onClick=changeInside('form1') color=blue>New</span>";
-pinkText[1] = "<span id=\"form1\" onClick=changeInside('form1') color=blue>Change</span>";
-pinkText[2] = "<span id=\"form1\" onClick=changeInside('form1') color=blue>Delete</span>";
+pinkText[0] = "<span id=\"form1\" onClick=changeInside('form41') color=yellow>New</span>";
+pinkText[1] = "<span id=\"form1\" onClick=changeInside('form42') color=yellow>Change</span>";
+pinkText[2] = "<span id=\"form1\" onClick=changeInside('form43') color=yellow>Delete</span>";
 pinkText[3] = "";
 
 var purpleText = new Array();
-purpleText[0] = "<a href='..\Personal.php'>Personals</a>";
-purpleText[1] = "<a href='..\MazalTov.php'>MazalTov!</a>";
-purpleText[2] = "<a href='..\Condolences.php'>Condolences</a>";
+purpleText[0] = "<a href='../Personal.php'>Personals</a>";
+purpleText[1] = "<a href='../MazalTov.php'>MazalTov!</a>";
+purpleText[2] = "<a href='../Condolences.php'>Condolences</a>";
 purpleText[3] = "";
 
 var whiteText = new Array();
-whiteText[0] = "<a href='..\Mikvah.php'>Mikvah</a>";
-whiteText[1] = "<a href='..\LostAndFound.php'>Lost&Found</a>";
-whiteText[2] = "<a href='..\Needed.php'>Needed</a>";
-whiteText[3] = "<a href='..\Wanted.php'>Wanted</a>";
+whiteText[0] = "<a href='../Mikvah.php'>Mikvah</a>";
+whiteText[1] = "<a href='../LostAndFound.php'>Lost&Found</a>";
+whiteText[2] = "<a href='../Needed.php'>Needed</a>";
+whiteText[3] = "<a href='../Wanted.php'>Wanted</a>";
 
 $(document).ready(function(){
-	$(".button" ).toggle(function(){
+  $("#contentRight01").toggle(function(){
+    $("#contentRight01Slide").slideDown("fast");
+  },
+  function(){
+	$("#contentRight01Slide").slideUp("fast");
+  });
+  
+  $("#contentRight02").toggle(function(){
+    $("#contentRight02Slide").slideDown("fast");
+  },
+  function(){
+	$("#contentRight02Slide").slideUp("fast");
+  });
+
+  $("#contentRight03").toggle(function(){
+    $("#contentRight03Slide").slideDown("fast");
+  },
+  function(){
+	$("#contentRight03Slide").slideUp("fast");
+  });
+
+  $("#contentRight04").toggle(function(){
+    $("#contentRight04Slide").slideDown("fast");
+  },
+  function(){
+	$("#contentRight04Slide").slideUp("fast");
+  });
+
+  $("#contentRight05").toggle(function(){
+    $("#contentRight05Slide").slideDown("fast");
+  },
+  function(){
+	$("#contentRight05Slide").slideUp("fast");
+  });
+
+  $("#contentRight06").toggle(function(){
+    $("#contentRight06Slide").slideDown("fast");
+  },
+  function(){
+	$("#contentRight06Slide").slideUp("fast");
+  });
+
+  $("#contentRight07").toggle(function(){
+    $("#contentRight07Slide").slideDown("fast");
+  },
+  function(){
+	$("#contentRight07Slide").slideUp("fast");
+  });
+});
+
+
+$(document).ready(function(){
+	$(".button" ).click(function(){
 		var clas  = $(this).attr("class" );
-		$(".button").css("color", "white");
+		$(".button").css("color", "#c98928");
+		/*$("#contentRight01Inside").text("just managing!");*/
 		if(clas.replace('button ','') == "blue"){
-			$(this).css("color", "blue");
+			$(this).css("color", "black");
 			$(".sub1").html(blueText[0]);
 			$(".sub2").html(blueText[1]);
 			$(".sub3").html(blueText[2]);
 			$(".sub4").html(blueText[3]);
+			$("#iThink").attr("src","./startPage.html");
+			//$("#contentMain").text("here we go!");
+			$("#contentRight01Slide").text("You are now ready to work on contractor records!");
+			$("#contentRight01Slide").slideDown("fast");
+			$("#contentRight01Inside").text("Managing contractors...");
 			}
 		if(clas.replace('button ','') == "green"){
-			$(this).css("color", "blue");
+			$(this).css("color", "black");
 			$(".sub1").html(greenText[0]);
 			$(".sub2").html(greenText[1]);
 			$(".sub3").html(greenText[2]);
 			$(".sub4").html(greenText[3]);
+			$("#iThink").attr("src","./startPage.html");
+			$("#contentRight01Slide").text("You are now ready to work on manager records!");
+			$("#contentRight01Slide").slideDown("fast");
+			$("#contentRight01Inside").text("Managing managers...");
 			}
 		if(clas.replace('button ','') == "orange"){
-			$(this).css("color", "blue");
+			$(this).css("color", "black");
 			$(".sub1").html(orangeText[0]);
 			$(".sub2").html(orangeText[1]);
 			$(".sub3").html(orangeText[2]);
 			$(".sub4").html(orangeText[3]);
+			$("#iThink").attr("src","./startPage.html");
+			$("#contentRight01Slide").text("You are now ready to work on owner records!");
+			$("#contentRight01Slide").slideDown("fast");
+			$("#contentRight01Inside").text("Managing owners...");
 			}
-
 		if(clas.replace('button ','') == "violet"){
-			$(this).css("color", "blue");
+			$(this).css("color", "black");
 			$(".sub1").html(violetText[0]);
 			$(".sub2").html(violetText[1]);
 			$(".sub3").html(violetText[2]);
 			$(".sub4").html(violetText[3]);
 			}
 		if(clas.replace('button ','') == "pink"){
-			$(this).css("color", "blue");
+			$(this).css("color", "black");
 			$(".sub1").html(pinkText[0]);
 			$(".sub2").html(pinkText[1]);
 			$(".sub3").html(pinkText[2]);
 			$(".sub4").html(pinkText[3]);
+			$("#iThink").attr("src","./startPage.html");
+			$("#contentRight01Slide").text("You are now ready to work on property records!");
+			$("#contentRight01Slide").slideDown("fast");
+			$("#contentRight01Inside").text("Managing properties...");
 			}
 		if(clas.replace('button ','') == "purple"){
-			$(this).css("color", "blue");
+			$(this).css("color", "black");
 			$(".sub1").html(purpleText[0]);
 			$(".sub2").html(purpleText[1]);
 			$(".sub3").html(purpleText[2]);
 			$(".sub4").html(purpleText[3]);
 			}
 		if(clas.replace('button ','') == "white"){
-			$(this).css("color", "blue");
+			$(this).css("color", "black");
 			$(".sub1").html(whiteText[0]);
 			$(".sub2").html(whiteText[1]);
 			$(".sub3").html(whiteText[2]);
@@ -116,7 +241,7 @@ $(document).ready(function(){
 		},
 		function(){
 		var clas  = $(this).attr("class" );
-			$(".button").css("color", "white");
+			$(".button").css("color", "#c98928");
 			$(".sub1").html(" ");
 			$(".sub2").html(" ");
 			$(".sub3").html(" ");
@@ -130,6 +255,7 @@ $(document).ready(function(){
 </head>
 <body>
 <div id="wrapper">
+	<div id="banner">
 	<div id="header"><!--  BEGIN DOCUMENT MENU ----------------->
 	<div class="container"> 
 	<div class="column c1">
@@ -141,7 +267,6 @@ $(document).ready(function(){
 	<div class="column c3">
 		<div class="button orange">  Owner  </div>
 	</div> <!-- column -->
-	
 	<div class="column c4">
 	</div> <!-- column -->
 	<div class="column c5">
@@ -153,7 +278,6 @@ $(document).ready(function(){
 	<div class="column c7">
 			<div class="button white">  Announcements </div>
 	</div> <!-- column -->
-
 	</div> <!-- #container --> 
 
 	</div><!--             END DOCUMENT MENU: Header  ------------------>
@@ -169,7 +293,6 @@ $(document).ready(function(){
 	<div class="column c3">
 		<div class="button sub3"> </div>
 	</div> <!-- column -->
-	
 	<div class="column c4">
 			<div class="button sub4">  </div>
 	</div> <!-- column -->
@@ -177,15 +300,40 @@ $(document).ready(function(){
 			<div class="button sub5"> </div>
 	</div> <!-- column -->
 	</div>
+	</div> <!-- end banner -->
 <!-- END DEV -->
 	</div>
 	<div id="content">
-		<div id="contentLeft"><img src="..\images\RebbeZLKosel.jpg"></div>
+		<div id="contentLeft"> </div>
 		<div id="contentMain">
-		    <iframe id="iThink" src="" height=289px width=513px>
+		    <iframe id="iThink" src="" height=850px width=560px> 
+		    <!-- <iframe id="iThink" src="" height=478px width=513px> -->
 			</iframe>	                    
 		</div>
-		<div id="contentRight">CONTENT RIGHT  R RRRRRR RRRR RRRR R RRRRR RRRR RRRRR RR RR RR RRRRRRRR RRRRR RRRRR RRRR RR RRRRR RRRRR RRR RRRRRR</div>
+		<div id="contentRight">
+			<hr>
+			<div id="contentRight01"><div class="vcontentRight" id="contentRight01Inside"> What is going on here??</div></div>
+			<div id="contentRight01Slide">If you need help, I will try to keep you up to date with everything you need to do!</div>
+			<hr>
+			<div id="contentRight02"><div class="vcontentRight" id="contentRight02Inside"> Content Right 02</div></div>
+			<div id="contentRight02Slide"> Sliding!</div>
+			<hr>
+			<div id="contentRight03"><div class="vcontentRight" id="contentRight03Inside"> Content Right 03</div></div>
+			<div id="contentRight03Slide"> Sliding!</div>
+			<hr>
+			<div id="contentRight04"><div class="vcontentRight" id="contentRight04Inside"> Content Right 04</div></div>
+			<div id="contentRight04Slide"> Sliding!</div>
+			<hr>
+			<div id="contentRight05"><div class="vcontentRight" id="contentRight05Inside"> Content Right 05</div></div>
+			<div id="contentRight05Slide"> Sliding!</div>
+			<hr>
+			<div id="contentRight06"><div class="vcontentRight" id="contentRight06Inside"> Content Right 06</div></div>
+			<div id="contentRight06Slide"> Sliding!</div>
+			<hr>
+			<div id="contentRight07"><div class="vcontentRight" id="contentRight07Inside"> Content Right 07</div></div>
+			<div id="contentRight07Slide"><a href='./MobilePage.html'>Mobile</a></div>
+			<hr>
+		</div><!-- contentRight -->
 	</div>
 	<div id="footer">FOOTER FFFFFFF FFFF FFFFFFFFFF FFFFFFFFFF FFFFF FFFF FFFFFF FFFF FFF FFFF FFFFF FFFFFF FFF FF</div>
 	<div id="bottom">BOTTOM  BBBBB BBBBB BBBBB BBBBBBB BBBB BBBBB BBBBB BBBBB BBB </div>

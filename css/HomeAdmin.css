@@ -1,84 +1,158 @@
 <style type="text/css">
-* {margin:0;background:black;}
+* 	{
+	margin:0;background:black;
+	}
 body {
 		font-family:arial,helvetica,sans-serif;
 		font-size:18px;
 		background-color:black;
 	}
-
+/* pulling the whole page together */
 #wrapper {
+		margin-top:10px;
 		width:900px;
 		margin:0px auto;
 		border:0px solid #bbb;
 		padding:10px;
-		background-color:black;
-		height:450px;
-	}
-
+		background-color:#c98928;
+		background-repeat:repeat;
+		height:1160px;
+		}
+/* top of the page - around headers and buttons */
+#banner {
+		margin-top:10px;
+		width:880px;
+		margin:0px auto;
+		border:4px solid;
+		border-color: #c98928;
+		padding:10px;
+		background:url("../images/banner01.jpg") fixed right;
+		height:120px;
+		}
+/* top header - first menu level */
 #header {
 		border:0px solid #bbb;
 		height:18px;
 		padding:10px;
 		text-align:center;
-		background-color:black;
-	}
+		background: fixed;
+		background-color:#62391;
+		background-repeat:repeat;
+		}
+/* lower header - second menu level */
 #header2 {
 		margin-top:15px;
 		border:0px solid #bbb;
 		height:18px;
 		padding:10px;
 		text-align:center;
-		background-color:black;
-	}
-
+		background-color:"#62391";
+		background-repeat:repeat;
+		}
+/* encloses the body of the page */
 #content {
 		margin-top:0px;
 		border:0px solid #bbb;
-		padding-bottom:10px;
-		height:400px;
-	}
+		height:850px;
+		}
+/* center of the page - including an iframe */
 #contentMain {
 		position:relative;
 		margin-left:160px;
-		margin-top:-305px;
-		width:520px;
-		color:white;
+		margin-top:-890px;
+		width:560px;
+		color:#c98928;
 		z-index:0;
-		background-color:lightblue;
+		background-color:#cbac90; 
 		background-repeat:no-repeat;
-		height:350px;	
-	}
+		height:860px;
+		}
+/* left side of center of page - usually just a picture */
 #contentLeft {
-		margin-top:-10px;
+		margin-top:0px;
+		height:890px;
 		width:160px;
 		z-index:5;
 		color:white;
-		background-color:black;
-	}
+		background-image:url("../images/sideBar01.jpg");
+		background-color:#c98928;
+		}
+/* right side of center of page - buttons and slide-to-open menus */
 #contentRight {
 		position:relative;
-		margin-left:680px;
-		margin-top:-350px;
+		margin-left:716px;
+		margin-top:-859px;
+		padding:10px;
 		width:160px;
-		height:350px;
-		border:0px solid red;
-		background-color:#85a7c3;
-		color:yellow;
-	}
+		height:835px;
+		z-index:7;
+		border-style:inset;
+		border-width:2px;
+		border-color:#c98928;
+		font-size:12px;
+		color:#056c59;
+		background-color:#c8a77c;
+		}
+/* right side menu choices, and slide to open pieces */	
+#contentRight01,#contentRight02,#contentRight03,
+#contentRight04, #contentRight05,#contentRight06,
+#contentRight07, #contentRight01Slide,#contentRight02Slide,
+#contentRight03Slide,#contentRight04Slide,#contentRight05Slide,
+#contentRight06Slide,#contentRight07Slide {
+		position:relative;
+		padding:10px;
+		width:136px;
+		height:2px;
+		z-index:7;
+		border-style:outset;
+		border-width:2px;
+		border-color:#c98928;
+		font-size:10px;
+		vertical-align:top;
+		color:#056c59;
+		background-color:#c8a77c;
+		}
+/* right side slides */
+#contentRight01Slide,#contentRight02Slide,#contentRight03Slide,
+#contentRight04Slide,#contentRight05Slide,#contentRight06Slide,
+#contentRight07Slide {
+		background-color:#cbac90;
+		height:56px;
+		padding:10px;
+		display:none;
+		}
+/* div inside contentRight0.. */
+.vcontentRight {
+		position:absolute;
+		top: 65%;
+		height: 10em;
+		margin-top: -1em;
+		}
+/* line at bottom of the page */
 #footer {
 		float:left;
 		margin-top:10px;
 		margin-bottom:10px;
-		padding:10px;
+		z-index:5;
 		border:0px solid #bbb;
-		color:red;
-		background-color:#555;
-		width:878px;
-	}
+		color:#056c59;
+		font-size:14px;
+		background-color:#cbac90;
+		width:898px;
+		height:39px;
+		}
+/* second line at bottom of page */
 #bottom {
 		clear:both;
 		text-align:right;
-		background-color:#555;
-		color:red;
-	}
+		background-color:#c98928;
+		color:#056c59;
+		font-size:14px;
+		}
+/* tables for update and delete selections */
+/* printed from FORM.php - function buildForm(...) */
+#centerTable {
+		border:2px solid black;
+		}
+		
 </style>

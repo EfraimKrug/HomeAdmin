@@ -1,0 +1,130 @@
+<html>
+<head>
+<!-- inside iFrame for MobilePage.html -->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="../js/jquery.js" ></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="../js/jquery.js" ></script>
+<script type="text/javascript"><!-- this jQuery loads the reverse geo codes into the form -->
+  $(document).ready(function() {
+		//I'm not doing anything else, so just leave
+		if(!navigator.geolocation) return;
+		
+		navigator.geolocation.getCurrentPosition(function(pos) {
+			geocoder = new google.maps.Geocoder();
+			var latlng = new google.maps.LatLng(pos.coords.latitude,pos.coords.longitude);	
+				geocoder.geocode({'latLng': latlng}, function(results, status) {
+				var result = results[0];
+				document.getElementById("Place").value =  result.formatted_address;
+				document.getElementById("Place2").value =  result.formatted_address;
+				});
+			});
+	});
+</script>
+</head>
+<body onload="getLocationConstant()" onunload="setPhoneNumber()">
+<script type="text/javascript">
+
+// Now, I am just grabbing & formatting date information... 
+var now = new Date();
+var strDateTime = [[AddZero(now.getDate()), 
+					AddZero(now.getMonth() + 1), 
+					now.getFullYear()].join("/"), 
+					[AddZero(now.getHours()), AddZero(now.getMinutes())].join(":"), 
+					now.getHours() >= 12 ? "PM" : "AM"].join(" ");
+
+//Pad given value to the left with "0"
+function AddZero(num) {
+    return (num >= 0 && num < 10) ? "0" + num : num + "";
+}
+
+// function called from the HTML form below
+function getMyTime()
+{
+	return strDateTime;
+}
+//=============================================
+// Here - I am loading the number into HTML5 storage. 
+function setPhoneNumber()
+{
+	if(typeof(Storage)!=="undefined")
+		{
+			localStorage.phoneNumber = document.getElementById("PhoneNumber").value;
+		}
+}
+
+// Get the phone number from HTML5 Storage if we have it.
+function getPhoneNumber()
+{
+	if(typeof(Storage)!=="undefined")
+	{
+		if(localStorage.phoneNumber){
+			document.getElementById("PhoneNumber").value = localStorage.phoneNumber; 
+			document.getElementById("PhoneNumber2").value = localStorage.phoneNumber; 
+			}
+		else {
+			document.getElementById("PhoneNumber").value = "Please enter your phone number";   
+			}
+	}
+}
+//=============================================
+// this function gets long/lat coordinates and passes them to 
+// the two functions below - in the case of success or failure
+//
+function getLocationConstant()
+{
+    if(navigator.geolocation)
+    {
+        navigator.geolocation.getCurrentPosition(onGeoSuccess,onGeoError);  
+    } else {
+        alert("Your browser or device doesn't support Geolocation");
+    }
+}
+
+// success
+// load the form element values (mostly hidden) with the google.maps information
+// as long as I am loading the form - I may as well grab the phone number and the
+// time - which I will also need to post.
+function onGeoSuccess(event)
+{
+    document.getElementById("Latitude").value =  event.coords.latitude; 
+    document.getElementById("Longitude").value = event.coords.longitude;
+	document.getElementById("DateTime").value = getMyTime();
+	
+    document.getElementById("Latitude2").value =  event.coords.latitude; 
+    document.getElementById("Longitude2").value = event.coords.longitude;
+	document.getElementById("DateTime2").value = getMyTime();
+	getPhoneNumber();
+
+}
+
+// OMG! Failure. Bummer.
+function onGeoError(event)
+{
+    alert("Error code " + event.code + ". " + event.message);
+}
+ </script>
+ <form action="../php/getGEOStuff.php" method="post">
+ <p>Please remember, we are logging your time by phone number, so the
+ phone number you log should be the one you originally logged in with!<br><br>
+ <table>
+ <tr><td>
+ <tr><td><input type="hidden" id="Movement" name="Movement" value="IN"></td><td></td></tr>
+ <input type="hidden" id="Latitude" name="Latitude" value="">
+ <input type="hidden" id="Longitude" name="Longitude" value="">
+ Phone Number: </td><td><input type="text" id="PhoneNumber" name="PhoneNumber" value="" size=12></td></tr>
+ <input type="hidden" id="DateTime" name="DateTime" value="">
+ <input type="hidden" id="Place" name="Place" value="">
+ <tr><td></td><td><input type="submit" value="Log In!" class=small></td></tr>
+ </form>
+ <form action="../php/getGEOStuff.php" method="post">
+ <input type="hidden" id="Movement2" name="Movement" value="OUT">
+ <input type="hidden" id="Latitude2" name="Latitude" value="">
+ <input type="hidden" id="Longitude2" name="Longitude" value="">
+ <input type="hidden" id="PhoneNumber2" name="PhoneNumber" value="">
+ <input type="hidden" id="DateTime2" name="DateTime" value="">
+ <input type="hidden" id="Place2" name="Place" value="">
+ <tr><td></td><td><input type="submit" value="Log Out!" class=small></td></tr>
+ </form>
+ </body>
+ </html>
